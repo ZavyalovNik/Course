@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите сколько у вас золота.");
+            float countGold = float.Parse(Console.ReadLine());
+            int priceCrystal = 3;
+            float countCrystal = countGold / priceCrystal;
+           
+            float resultGold = countGold - (countCrystal * priceCrystal);
+      
+            Console.WriteLine("Теперь у вас " + countCrystal + " кристаллов и " + resultGold + " золота");
+
+            
+
+
+
+
+        }
+    }
+}
