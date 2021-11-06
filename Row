@@ -10,13 +10,12 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-
-            int pictures = 52;
-            int seriesPictures = pictures / 3;
-            int picturesWithoutRow = pictures % 3;
-            Console.WriteLine("Рядов картинок целых: " + seriesPictures);
+                        int pictures = 52;
+            int picturesInRow = 3;
+            int rowPictures = pictures / picturesInRow;
+            int picturesWithoutRow = pictures % picturesInRow;
+            Console.WriteLine("Рядов картинок целых: " + rowPictures);
             Console.WriteLine("Картинок без рядов осталось: " + picturesWithoutRow);
-
-        }
+         }
     }
 }
