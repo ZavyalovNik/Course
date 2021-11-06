@@ -1,6 +1,5 @@
 int number2E31;
 uint number2E32;
-string characterArray;
 byte number2E7
 sbyte numberByteUnsignet;
 short number2E15;
@@ -8,4 +7,5 @@ ushort number2E16;
 long number2E63;
 ulong number2E64;
 float numberWithDot;
-char simbol;
+char symbol;
+string characterArray;
