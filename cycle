@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Сколько раз нужно вывести на экран фразу?");
+            int phraseCount = int.Parse(Console.ReadLine());
+            int numberComparsion = 1;
+            while (phraseCount >= numberComparsion)
+            {
+                Console.WriteLine("Фраза");
+                numberComparsion++;
+             }
+         }
+    }
+}
