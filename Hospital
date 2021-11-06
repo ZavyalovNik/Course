@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Сколько старушек в очереди?");
+            int countOldLady = int.Parse(Console.ReadLine());
+            int hourWait = (countOldLady * 10) / 60;
+            int minutesWait = (countOldLady * 10) % 60;
+
+            Console.WriteLine("вам нужно подождать " + hourWait + " часов и " + minutesWait +" минут");
+
+            
+
+
+
+
+        }
+    }
+}
