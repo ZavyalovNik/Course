@@ -12,16 +12,11 @@ namespace consoleNew
         {
             Console.WriteLine("Сколько старушек в очереди?");
             int countOldLady = int.Parse(Console.ReadLine());
-            int hourWait = (countOldLady * 10) / 60;
-            int minutesWait = (countOldLady * 10) % 60;
-
-            Console.WriteLine("вам нужно подождать " + hourWait + " часов и " + minutesWait +" минут");
-
-            
-
-
-
-
-        }
+            int minIhHour = 60;
+            int minPerPatient = 10;
+            int hourWait = (countOldLady * minPerPatient) / minIhHour;
+            int minutesWait = (countOldLady * minPerPatient) % minIhHour;
+            Console.WriteLine("вам нужно подождать " + hourWait + " часов и " + minutesWait + " минут");
+         }
     }
 }
