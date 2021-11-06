@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Как Вас зовут?");
+            string youName = Console.ReadLine();
+            Console.WriteLine("Каой у Вас знак зодиака?");
+            string zodiakSign = Console.ReadLine();
+            Console.WriteLine("Сколько Вам лет?");
+            int youOld = int.Parse(Console.ReadLine());
+            Console.WriteLine("Где Вы работаете?");
+            string plaseOfWork = Console.ReadLine();
+
+            Console.WriteLine($"Вас зовут {youName}, Вам {youOld} лет, Ваш знак зодиака {zodiakSign} и работаете вы в компании {plaseOfWork}.");
+
+
+
+
+
+        }
+    }
+}
