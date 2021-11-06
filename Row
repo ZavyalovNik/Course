@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int pictures = 52;
+            int seriesPictures = pictures / 3;
+            int picturesWithoutRow = pictures % 3;
+            Console.WriteLine("Рядов картинок целых: " + seriesPictures);
+            Console.WriteLine("Картинок без рядов осталось: " + picturesWithoutRow);
+
+        }
+    }
+}
