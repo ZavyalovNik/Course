@@ -30,6 +30,7 @@ namespace consoleNew
             Console.WriteLine("4 - Доллары в Евро");
             Console.WriteLine("5 - Евро в рубли");
             Console.WriteLine("6 - Евро в доллары");
+            Console.WriteLine("7 - Выход");
             userInput = int.Parse(Console.ReadLine());
             switch(userInput)
             {
@@ -110,6 +111,9 @@ namespace consoleNew
                     {
                         Console.WriteLine("Не достаточно евро");
                     }
+                    break;
+                case 7:
+                    Console.WriteLine("Всего доброго!");
                     break;
             }
             Console.WriteLine("Ваш баланс " + rub + " рублей " + usd + " долларов " + eur + " евро");
