@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("напиши что то");
+            string userInput = Console.ReadLine();
+            string comparison = "exit";
+            while (userInput != comparison)
+            {
+                string user = Console.ReadLine();
+                if (user == comparison)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}
