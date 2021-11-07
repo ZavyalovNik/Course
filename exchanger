@@ -14,7 +14,7 @@ namespace consoleNew
             float rub;
             float usd;
             float eur;
-            float rubToUsd = 66, usdToRub = 68.7f, rubToEur = 73.8f, usdToEur = 69, eurToRub = 68.6f, eurToUsd = 69;
+            float rubToUsd = 0.0149f, usdToRub = 66, rubToEur = 0.0138f, usdToEur = 0.85f, eurToRub = 74, eurToUsd = 1.2f;
             float currencyCount;
             Console.WriteLine("Добро пожаловать в обменник");
             Console.WriteLine("Сколько у вас рублей?");
@@ -32,7 +32,7 @@ namespace consoleNew
             Console.WriteLine("6 - Евро в доллары");
             Console.WriteLine("7 - Выход");
             userInput = int.Parse(Console.ReadLine());
-            switch(userInput)
+            switch (userInput)
             {
                 case 1:
                     Console.WriteLine("сколько обменять рублей на доллары вы хотите?");
@@ -46,7 +46,7 @@ namespace consoleNew
                     {
                         Console.WriteLine("Не достаточно рублей");
                     }
-                        break;
+                    break;
                 case 2:
                     Console.WriteLine("сколько обменять рублей на евро вы хотите?");
                     currencyCount = float.Parse(Console.ReadLine());
