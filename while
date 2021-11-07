@@ -10,16 +10,12 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("напиши что то");
-            string userInput = Console.ReadLine();
-            string comparison = "exit";
-            while (userInput != comparison)
+            string userInput = "0";
+            string stopCycle = "exit";
+            while (userInput != stopCycle)
             {
-                string user = Console.ReadLine();
-                if (user == comparison)
-                {
-                    break;
-                }
+                Console.WriteLine("напиши что то");
+                userInput = Console.ReadLine();
             }
         }
     }
