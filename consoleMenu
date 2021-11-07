@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string userInput;
+            Console.WriteLine("Привет, это меню в котором можно ввести некоторые команды и они исполнятся");
+            Console.WriteLine("SetName");
+            Console.WriteLine("ChangeConsoleColor");
+            Console.WriteLine("SetPassword");
+            Console.WriteLine("WriteName");
+            Console.WriteLine("Esc");
+            userInput = Console.ReadLine();
+            switch(userInput)
+            {
+                case "SetName":
+                    Console.WriteLine("Введите имя");
+                    string YouName = Console.ReadLine();
+                    break;
+                case "ChangeConsoleColor":
+                    Console.WriteLine("Color");
+                    break;
+                case "SetPassword":
+                    Console.WriteLine("установи пароль");
+                    string password = Console.ReadLine();
+                    break;
+                case "WriteName":
+                    Console.WriteLine("name");
+                    break;
+                case "Esc":
+                    Console.WriteLine("Выход");
+                    break;
+
+
+
+
+            }
+
+
+
+
+
+        }
+    }
+}
