@@ -14,7 +14,6 @@ namespace consoleNew
             string userInput = "1";
             while (userInput != exit)
             {
-                
                 Console.WriteLine("Привет, это меню в котором можно ввести некоторые команды");
                 Console.WriteLine("SetName");
                 Console.WriteLine("ChangeConsoleColor");
