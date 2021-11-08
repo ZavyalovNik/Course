@@ -16,7 +16,7 @@ namespace consoleNew
                 float rub;
                 float usd;
                 float eur;
-                float rubToUsd = 0.0149f, usdToRub = 66, rubToEur = 0.0138f, usdToEur = 0.85f, eurToRub = 74, eurToUsd = 1.2f;
+                float rubToUsd = 66, usdToRub = 0.0149f, rubToEur = 74, usdToEur = 1.2f, eurToRub = 0.0138f, eurToUsd = 0.85f;
                 float currencyCount;
                 Console.WriteLine("Добро пожаловать в обменник");
                 Console.WriteLine("Сколько у вас рублей?");
@@ -94,7 +94,7 @@ namespace consoleNew
                         if (eur >= currencyCount)
                         {
                             eur -= currencyCount;
-                            rub += currencyCount / eurToRub;
+                            rub += currencyCount * eurToRub;
                         }
                         else
                         {
@@ -107,7 +107,7 @@ namespace consoleNew
                         if (eur >= currencyCount)
                         {
                             eur -= currencyCount;
-                            usd += currencyCount / eurToUsd;
+                            usd += currencyCount * eurToUsd;
                         }
                         else
                         {
