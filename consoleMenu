@@ -10,14 +10,20 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            while (true)
+            string exit = "Esc";
+            string userInput = "1";
+            while (userInput != exit)
             {
-                string userInput;
+                
                 Console.WriteLine("Привет, это меню в котором можно ввести некоторые команды");
                 Console.WriteLine("SetName");
                 Console.WriteLine("ChangeConsoleColor");
                 Console.WriteLine("SetPassword");
                 Console.WriteLine("WriteName");
+                Console.WriteLine("Mix");
+                Console.WriteLine("TurnOffMusicMenu");
+                Console.WriteLine("ToTheEndMenu"); 
+                Console.WriteLine("info");
                 Console.WriteLine("Esc");
                 userInput = Console.ReadLine();
                 switch (userInput)
@@ -37,19 +43,21 @@ namespace consoleNew
                         Console.WriteLine("Напишите имя");
                         string name = Console.ReadLine();
                         break;
+                    case "Mix":
+                        Console.WriteLine("Кручу верчу запутать хочу. Перемешали строки меню");
+                        break;
+                    case "TurnOffMusicMenu":
+                        Console.WriteLine("Музыка в меню выключена");
+                        break;
+                    case "Info":
+                        Console.WriteLine("Туть информация");
+                        break;
                     case "Esc":
                         Console.WriteLine("Выход");
-                        
                         break;
-
-
-
-
                 }
-
-
-
-
+                Console.WriteLine("такое меню)");
+                Console.ReadKey();
             }
         }
     }
