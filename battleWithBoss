@@ -11,7 +11,7 @@ namespace consoleNew
         static void Main(string[] args)
         {
             int g = 0;
-            int superAttak = -100;
+            int superAttak = 100;
             float healthHero = 600;
             float damageHero = 10f;
             float healthBoss = 1200f;
@@ -29,8 +29,8 @@ namespace consoleNew
                 g++;
                 if (g == 10)
                 {
-                    Console.WriteLine("10 ход"); //на 10 ходу проведена супер атака
-                    healthBoss += superAttak;
+                    Console.WriteLine("10 ход, супер атака на " + superAttak + " урона"); //на 10 ходу проведена супер атака
+                    healthBoss -= superAttak;
                 }
                 if (healthHero < healthHigh && healthHero > healthDown) // подготовка удара мьена
                 {
@@ -42,7 +42,7 @@ namespace consoleNew
                 if (healthHero < healthBoss)   //если у героя меньше жизней чем у босса то атака увеличивается
                 {
                     damageHero *= rateDamage;
-                    if (healthHero <= 100)
+                    if (healthHero <= 100 && healthHero > 0)
                     {
                         Console.WriteLine("Божественное вмешательство! вас излечили на"); //пипец подкрадывается и начинается лечение, немношк
                         float i = rand.Next(0, 10);
