@@ -10,37 +10,48 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-           // int g = 0;
-            //int superAttak = 100;
-            float healthHero = 300;
-            float damageHero = 5;
+            int g = 0;
+            int superAttak = -100;
+            float healthHero = 600;
+            float damageHero = 10f;
             float healthBoss = 1200f;
             float damageBoss = 12;
             float rateDamage = 1.001f;
-            while(healthHero > 0 && healthBoss > 0)
+            float healthHigh = healthHero;
+            float healthDown = healthHero - 20;
+            float minionAttak = 50;
+            Random rand = new Random();
+            while (healthHero > 0 && healthBoss > 0)
             {
                 healthHero -= damageBoss;
                 healthBoss -= damageHero;
                 Console.WriteLine("Жизней у героя " + healthHero + ", жизней у босса " + healthBoss);
-               // g++;
-               // if (g == 10)
-                //    Console.WriteLine("10 ход");
-               // healthBoss -= superAttak;
+                g++;
+                if (g == 10)
+                {
+                    Console.WriteLine("10 ход"); //на 10 ходу проведена супер атака
+                    healthBoss += superAttak;
+                }
+                if (healthHero < healthHigh && healthHero > healthDown) // подготовка удара мьена
+                {
+                    healthHero -= 100;
+                    Console.WriteLine("вызов миньёна который бьёт по боссу"); // удар культяпкой
+                    healthBoss -= minionAttak;
+                    Console.WriteLine("ваш мьнён своей культяпкой ударил на " + minionAttak);
+                }
                 if (healthHero < healthBoss)   //если у героя меньше жизней чем у босса то атака увеличивается
                 {
                     damageHero *= rateDamage;
                     if (healthHero <= 100)
                     {
                         Console.WriteLine("Божественное вмешательство! вас излечили на"); //пипец подкрадывается и начинается лечение, немношк
-                        Random rand = new Random();
-                        float i = rand.Next(1,013f * healthHero, 1,012f * healthHero);
+                        float i = rand.Next(0, 10);
                         Console.WriteLine(i);
                         healthHero += i;
                     }
                 }
-                
             }
-            if (healthHero == healthBoss && healthBoss == 0)
+            if (healthHero == healthBoss && healthBoss <= 0)
             {
                 Console.WriteLine("ваши силы оказались равны");
             }
