@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           // int g = 0;
+            //int superAttak = 100;
+            float healthHero = 300;
+            float damageHero = 5;
+            float healthBoss = 1200f;
+            float damageBoss = 12;
+            float rateDamage = 1.001f;
+            while(healthHero > 0 && healthBoss > 0)
+            {
+                healthHero -= damageBoss;
+                healthBoss -= damageHero;
+                Console.WriteLine("Жизней у героя " + healthHero + ", жизней у босса " + healthBoss);
+               // g++;
+               // if (g == 10)
+                //    Console.WriteLine("10 ход");
+               // healthBoss -= superAttak;
+                if (healthHero < healthBoss)   //если у героя меньше жизней чем у босса то атака увеличивается
+                {
+                    damageHero *= rateDamage;
+                    if (healthHero <= 100)
+                    {
+                        Console.WriteLine("Божественное вмешательство! вас излечили на"); //пипец подкрадывается и начинается лечение, немношк
+                        Random rand = new Random();
+                        float i = rand.Next(1,013f * healthHero, 1,012f * healthHero);
+                        Console.WriteLine(i);
+                        healthHero += i;
+                    }
+                }
+                
+            }
+            if (healthHero == healthBoss && healthBoss == 0)
+            {
+                Console.WriteLine("ваши силы оказались равны");
+            }
+            else if (healthBoss <= 0)
+            {
+                Console.WriteLine("ты прикончил тварюгу!");
+            }
+            else if (healthHero <= 0)
+            {
+                Console.WriteLine("Босс вас покарал");
+            }
+        }
+    }
+}
