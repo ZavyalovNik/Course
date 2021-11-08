@@ -108,7 +108,7 @@ namespace consoleNew
                         if (eur >= currencyCount)
                         {
                             eur -= currencyCount;
-                            usd += currencyCount * eurToUsd;
+                            usd += currencyCount / eurToUsd;
                         }
                         else
                         {
