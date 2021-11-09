@@ -16,12 +16,17 @@ namespace consoleNew
             string userInputSymbol = Console.ReadLine();
             Console.WriteLine(userInput.Length);
             int lineLength = userInput.Length;
-            while (userInput.Length >= lineLength && lineLength > 0)
+            int lineLength2 = userInput.Length;
+            while (lineLength > -2)
             {
-                i--;
-                Console.WriteLine(userInputSymbol);
-                Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
-                Console.WriteLine(userInputSymbol);
+                lineLength--;
+                Console.Write(userInputSymbol);
+            }
+            Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
+            while (lineLength2 > -2)
+            {
+                lineLength2--;
+                Console.Write(userInputSymbol);
             }
         }
     }
