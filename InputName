@@ -13,15 +13,15 @@ namespace consoleNew
             Console.WriteLine("Напишите ваше имя");
             string userInput = Console.ReadLine();
             Console.WriteLine("Введите символ в котором написать ваше имя");
-            string x = Console.ReadLine();
+            string userInputSymbol = Console.ReadLine();
             Console.WriteLine(userInput.Length);
-            int i = userInput.Length;
-            while (userInput.Length >= i && i > 0)
+            int lineLength = userInput.Length;
+            while (userInput.Length >= lineLength && lineLength > 0)
             {
                 i--;
-                Console.WriteLine(x);
-                Console.WriteLine(x + userInput + x );
-                Console.WriteLine(x);
+                Console.WriteLine(userInputSymbol);
+                Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
+                Console.WriteLine(userInputSymbol);
             }
         }
     }
