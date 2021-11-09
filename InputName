@@ -21,6 +21,10 @@ namespace consoleNew
             {
                 lineLength--;
                 Console.Write(userInputSymbol);
+                if (lineLength == -2)
+                {
+                    Console.WriteLine(userInputSymbol);
+                }
             }
             Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
             while (lineLength2 > -2)
