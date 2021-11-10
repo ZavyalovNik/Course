@@ -15,6 +15,7 @@ namespace consoleNew
             Console.WriteLine("Введите символ в котором написать ваше имя");
             string userInputSymbol = Console.ReadLine();
             int lineLength = userInput.Length;
+            int lowSymbol = userInput.Length;
             for (int i = -2; i < lineLength; i++)
             {
                     Console.Write(userInputSymbol);
@@ -23,6 +24,10 @@ namespace consoleNew
                     Console.Write("\n");
                     Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
                 }
+            }
+            for(int i = -2; i < lowSymbol; i++)
+            {
+                Console.Write(userInputSymbol);
             }
         }
     }
