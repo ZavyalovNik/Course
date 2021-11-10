@@ -19,37 +19,32 @@ namespace consoleNew
                 Console.WriteLine("ChangeConsoleColor");
                 Console.WriteLine("SetPassword");
                 Console.WriteLine("WriteName");
-                Console.WriteLine("Mix");
-                Console.WriteLine("TurnOffMusicMenu");
-                Console.WriteLine("ToTheEndMenu"); 
-                Console.WriteLine("info");
+                Console.WriteLine("ReturnConsoleColor");
                 Console.WriteLine("Esc");
                 userInput = Console.ReadLine();
+                
                 switch (userInput)
                 {
                     case "SetName":
                         Console.WriteLine("Введите имя");
-                        string YouName = Console.ReadLine();
+                       
+                        string youName = Console.ReadLine();
                         break;
                     case "ChangeConsoleColor":
-                        Console.WriteLine("Color");
+                        Console.WriteLine("Меняем цвет");
+                        Console.ForegroundColor = ConsoleColor.Red;
                         break;
                     case "SetPassword":
                         Console.WriteLine("установи пароль");
                         string password = Console.ReadLine();
                         break;
                     case "WriteName":
-                        Console.WriteLine("Напишите имя");
-                        string name = Console.ReadLine();
-                        break;
-                    case "Mix":
-                        Console.WriteLine("Кручу верчу запутать хочу. Перемешали строки меню");
-                        break;
-                    case "TurnOffMusicMenu":
-                        Console.WriteLine("Музыка в меню выключена");
-                        break;
-                    case "Info":
-                        Console.WriteLine("Туть информация");
+                        Console.WriteLine("Имя которое вы ввели");
+                       // if (youName != null)
+                            break;
+                    case "ReturnConsoleColor":
+                        Console.WriteLine("Возвращаем цвет консоли обратно");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case "Esc":
                         Console.WriteLine("Выход");
