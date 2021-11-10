@@ -14,22 +14,21 @@ namespace consoleNew
             string userInput = Console.ReadLine();
             Console.WriteLine("Введите символ в котором написать ваше имя");
             string userInputSymbol = Console.ReadLine();
-            Console.WriteLine(userInput.Length);
             int lineLength = userInput.Length;
-            int lineLength2 = userInput.Length;
+            int lowerSymbol = userInput.Length;
             while (lineLength > -2)
             {
                 lineLength--;
                 Console.Write(userInputSymbol);
-                if (lineLength == -2)
+                if (lineLength == -2)   //для преноса строки здесь иф, если его не будет то будет писать в той же строке 
                 {
                     Console.WriteLine(userInputSymbol);
                 }
             }
             Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
-            while (lineLength2 > -2)
+            while (lowerSymbol > -2)
             {
-                lineLength2--;
+                lowerSymbol--;
                 Console.Write(userInputSymbol);
             }
         }
