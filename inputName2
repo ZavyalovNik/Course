@@ -18,14 +18,12 @@ namespace consoleNew
             int lowSymbol = userInput.Length;
             for (int i = -2; i < lineLength; i++)
             {
-                    Console.Write(userInputSymbol);
-                if (i == lineLength - 1)
-                {
-                    Console.Write("\n");
-                    Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
-                }
+                Console.Write(userInputSymbol);
             }
-            for(int i = -2; i < lowSymbol; i++)
+            Console.Write("\n");
+            Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
+            
+            for (int i = -2; i < lowSymbol; i++)
             {
                 Console.Write(userInputSymbol);
             }
