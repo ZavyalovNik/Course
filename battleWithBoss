@@ -10,7 +10,7 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            int g = 0;
+            int progressBattle = 0;
             int superAttak = 100;
             float healthHero = 600;
             float damageHero = 10f;
@@ -26,32 +26,32 @@ namespace consoleNew
                 healthHero -= damageBoss;
                 healthBoss -= damageHero;
                 Console.WriteLine("Жизней у героя " + healthHero + ", жизней у босса " + healthBoss);
-                g++;
-                if (g == 10)
+                progressBattle++;
+                if (progressBattle == 10)
                 {
-                    Console.WriteLine("10 ход, супер атака на " + superAttak + " урона"); //на 10 ходу проведена супер атака
+                    Console.WriteLine("10 ход, супер атака на " + superAttak + " урона");
                     healthBoss -= superAttak;
                 }
-                if (healthHero < healthHigh && healthHero > healthDown) // подготовка удара мьена
+                if (healthHero < healthHigh && healthHero > healthDown) 
                 {
                     healthHero -= 100;
-                    Console.WriteLine("вызов миньёна который бьёт по боссу"); // удар культяпкой
+                    Console.WriteLine("вызов миньёна который бьёт по боссу"); 
                     healthBoss -= minionAttak;
                     Console.WriteLine("ваш мьнён своей культяпкой ударил на " + minionAttak);
                 }
-                if (healthHero < healthBoss)   //если у героя меньше жизней чем у босса то атака увеличивается
+                if (healthHero < healthBoss)   
                 {
                     damageHero *= rateDamage;
                     if (healthHero <= 100 && healthHero > 0)
                     {
-                        Console.WriteLine("Божественное вмешательство! вас излечили на"); //пипец подкрадывается и начинается лечение, немношк
-                        float i = rand.Next(0, 10);
-                        Console.WriteLine(i);
-                        healthHero += i;
+                        Console.WriteLine("Божественное вмешательство! вас излечили на"); 
+                        float healHero = rand.Next(0, 10);
+                        Console.WriteLine(healHero);
+                        healthHero += healHero;
                     }
                 }
             }
-            if (healthHero == healthBoss && healthBoss <= 0)
+            if (healthHero == healthBoss)
             {
                 Console.WriteLine("ваши силы оказались равны");
             }
