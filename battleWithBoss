@@ -4,54 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace consoleNew
+namespace consoleNew2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int progressBattle = 0;
-            int superAttak = 100;
+            int round = 0;
+            int damageHeroSuperAttak = 100;
             float healthHero = 600;
-            float damageHero = 10f;
+            float damageHero = 11f;
             float healthBoss = 1200f;
             float damageBoss = 12;
-            float rateDamage = 1.001f;
+            float rateDamage = 1.030f;
             float healthHigh = healthHero;
             float healthDown = healthHero - 20;
             float minionAttak = 50;
-            Random rand = new Random();
+            float LowHealthHero = 100;
+            Random random = new Random();
             while (healthHero > 0 && healthBoss > 0)
             {
                 healthHero -= damageBoss;
                 healthBoss -= damageHero;
                 Console.WriteLine("Жизней у героя " + healthHero + ", жизней у босса " + healthBoss);
-                progressBattle++;
-                if (progressBattle == 10)
+                round++;
+                if (round == 10)
                 {
-                    Console.WriteLine("10 ход, супер атака на " + superAttak + " урона");
-                    healthBoss -= superAttak;
+                    Console.WriteLine("10 ход, супер атака на " + damageHeroSuperAttak + " урона");
+                    healthBoss -= damageHeroSuperAttak;
                 }
-                if (healthHero < healthHigh && healthHero > healthDown) 
+                if (healthHero < healthHigh && healthHero > healthDown)
                 {
-                    healthHero -= 100;
-                    Console.WriteLine("вызов миньёна который бьёт по боссу"); 
+                    healthHero -= LowHealthHero;
+                    Console.WriteLine("вызов миньёна который бьёт по боссу");
                     healthBoss -= minionAttak;
                     Console.WriteLine("ваш мьнён своей культяпкой ударил на " + minionAttak);
                 }
-                if (healthHero < healthBoss)   
+                if (healthHero < healthBoss)
                 {
                     damageHero *= rateDamage;
-                    if (healthHero <= 100 && healthHero > 0)
+                    if (healthHero <= LowHealthHero && healthHero > 0)
                     {
-                        Console.WriteLine("Божественное вмешательство! вас излечили на"); 
-                        float healHero = rand.Next(0, 10);
+                        Console.WriteLine("Божественное вмешательство! вас излечили на");
+                        float healHero = random.Next(0, 10);
                         Console.WriteLine(healHero);
                         healthHero += healHero;
                     }
                 }
             }
-            if (healthHero == healthBoss)
+            if (healthHero < 0 && healthBoss < 0)
             {
                 Console.WriteLine("ваши силы оказались равны");
             }
