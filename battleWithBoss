@@ -11,6 +11,7 @@ namespace consoleNew2
         static void Main(string[] args)
         {
             int round = 0;
+            int progress = 10;
             int damageHeroSuperAttak = 100;
             float healthHero = 600;
             float damageHero = 11f;
@@ -21,18 +22,23 @@ namespace consoleNew2
             float healthDown = healthHero - 20;
             float minionAttak = 50;
             float LowHealthHero = 100;
+
+
             Random random = new Random();
+
             while (healthHero > 0 && healthBoss > 0)
             {
                 healthHero -= damageBoss;
                 healthBoss -= damageHero;
                 Console.WriteLine("Жизней у героя " + healthHero + ", жизней у босса " + healthBoss);
                 round++;
-                if (round == 10)
+
+                if (round == progress)
                 {
                     Console.WriteLine("10 ход, супер атака на " + damageHeroSuperAttak + " урона");
                     healthBoss -= damageHeroSuperAttak;
                 }
+
                 if (healthHero < healthHigh && healthHero > healthDown)
                 {
                     healthHero -= LowHealthHero;
@@ -40,9 +46,11 @@ namespace consoleNew2
                     healthBoss -= minionAttak;
                     Console.WriteLine("ваш мьнён своей культяпкой ударил на " + minionAttak);
                 }
+
                 if (healthHero < healthBoss)
                 {
                     damageHero *= rateDamage;
+                   
                     if (healthHero <= LowHealthHero && healthHero > 0)
                     {
                         Console.WriteLine("Божественное вмешательство! вас излечили на");
@@ -52,14 +60,17 @@ namespace consoleNew2
                     }
                 }
             }
+           
             if (healthHero < 0 && healthBoss < 0)
             {
                 Console.WriteLine("ваши силы оказались равны");
             }
+           
             else if (healthBoss <= 0)
             {
                 Console.WriteLine("ты прикончил тварюгу!");
             }
+          
             else if (healthHero <= 0)
             {
                 Console.WriteLine("Босс вас покарал");
