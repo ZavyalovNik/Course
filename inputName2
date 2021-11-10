@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Напишите ваше имя");
+            string userInput = Console.ReadLine();
+            Console.WriteLine("Введите символ в котором написать ваше имя");
+            string userInputSymbol = Console.ReadLine();
+            int lineLength = userInput.Length;
+            for (int i = -2; i < lineLength; i++)
+            {
+                    Console.Write(userInputSymbol);
+                if (i == lineLength - 1)
+                {
+                    Console.Write("\n");
+                    Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
+                }
+            }
+        }
+    }
+}
