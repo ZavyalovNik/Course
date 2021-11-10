@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace consoleNew
+namespace consoleNew2
 {
     internal class Program
     {
@@ -14,16 +14,18 @@ namespace consoleNew
             string userInput = Console.ReadLine();
             Console.WriteLine("Введите символ в котором написать ваше имя");
             string userInputSymbol = Console.ReadLine();
-            int lineLength = userInput.Length;
-            string symbols = "";
-            for (int i = -2; i < lineLength; i++)
+            int lineLength = userInput.Length + 2 ;
+            string characterString = "";
+
+            for (int i = 0; i < lineLength; i++)
             {
-                symbols += userInputSymbol;
+                characterString += userInputSymbol;
             }
-            Console.Write(symbols);
+
+            Console.Write(characterString);
             Console.Write("\n");
             Console.WriteLine(userInputSymbol + userInput + userInputSymbol);
-            Console.Write(symbols);
+            Console.Write(characterString);
         }
     }
 }
