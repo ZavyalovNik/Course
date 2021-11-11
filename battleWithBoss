@@ -22,7 +22,8 @@ namespace consoleNew
             float healthDown = healthHero - 20;
             float minionAttak = 50;
             float LowHealthHero = 100;
-
+            int lowRandomHeal = 0;
+            int highRandomHeal = 10;
 
             Random random = new Random();
 
@@ -54,7 +55,7 @@ namespace consoleNew
                     if (healthHero <= LowHealthHero && healthHero > 0)
                     {
                         Console.WriteLine("Божественное вмешательство! вас излечили на");
-                        float healHero = random.Next(0, 10);
+                        float healHero = random.Next(lowRandomHeal, highRandomHeal);
                         Console.WriteLine(healHero);
                         healthHero += healHero;
                     }
