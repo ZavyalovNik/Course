@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace consoleNew2
+namespace consoleNew
 {
     internal class Program
     {
@@ -17,7 +17,7 @@ namespace consoleNew2
             float damageHero = 11f;
             float healthBoss = 1200f;
             float damageBoss = 12;
-            float rateDamage = 1.030f;
+            float rateDamage = 1.0295f;
             float healthHigh = healthHero;
             float healthDown = healthHero - 20;
             float minionAttak = 50;
@@ -35,7 +35,7 @@ namespace consoleNew2
 
                 if (round == progress)
                 {
-                    Console.WriteLine("10 ход, супер атака на " + damageHeroSuperAttak + " урона");
+                    Console.WriteLine(progress + " ход, супер атака на " + damageHeroSuperAttak + " урона");
                     healthBoss -= damageHeroSuperAttak;
                 }
 
@@ -50,7 +50,7 @@ namespace consoleNew2
                 if (healthHero < healthBoss)
                 {
                     damageHero *= rateDamage;
-                   
+
                     if (healthHero <= LowHealthHero && healthHero > 0)
                     {
                         Console.WriteLine("Божественное вмешательство! вас излечили на");
@@ -60,17 +60,17 @@ namespace consoleNew2
                     }
                 }
             }
-           
+
             if (healthHero < 0 && healthBoss < 0)
             {
                 Console.WriteLine("ваши силы оказались равны");
             }
-           
+
             else if (healthBoss <= 0)
             {
                 Console.WriteLine("ты прикончил тварюгу!");
             }
-          
+
             else if (healthHero <= 0)
             {
                 Console.WriteLine("Босс вас покарал");
