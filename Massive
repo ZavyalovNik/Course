@@ -10,17 +10,34 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            int[,] array = { { 1, 8, 6 },{ 2, 5, 6 },{ 9, 8, 3} };
+            int[,] array = { { 2, 3, 5 }, { 1, 9, 8 }, { 9, 5, 6 } };
+            int sumLine = 0;
+            int columnMultiplication = 1;
 
-            for (int i = 0; i < array.GetLength(0); i++);
+            for (int i = 0; i < array.GetLength(0); i++)
+
             {
-               
-                for (int j = 0; j < array.GetLength(1); j++);
+                for (int j = 0; j < array.GetLength(1); j++)
 
                 {
-                    Console.WriteLine(array[i, j]);
+                    Console.Write(array[i, j] + " ");
                 }
+                Console.WriteLine();
             }
+
+            for (int i = 0; i < array.GetLength(0); i++)
+
+            {
+                sumLine += array[1, i];
+            }
+            Console.WriteLine("Сумма второй строки " + sumLine);
+
+            for (int i = 0; i < array.GetLength(1); i++)
+
+            {
+                columnMultiplication *= array[i, 0];
+            }
+            Console.WriteLine("Произведение первого столбца " + columnMultiplication);
         }
     }
 }
