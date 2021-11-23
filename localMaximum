@@ -18,28 +18,27 @@ namespace consoleNew
             int[] array = new int[30];
 
             for (int i = 0; i < array.Length; i++)
-           
             {
                 array[i] = random.Next(minRandom, maxRandom);
                 Console.Write(array[i] + " ");
-              }
+            }
+
             Console.WriteLine("Локальные максимумы:");
 
-            if(array[0] > array[1])
-
+            if (array[0] > array[1])
             {
                 Console.Write(" " + array[0]);
             }
 
-            for(int i = 1; i < array.Length - 1; i++)
+            for (int i = 1; i < array.Length - 1; i++)
             {
-                if(array[i] > array[i - 1] && array[i] > array[i + 1])
+                if (array[i] > array[i - 1] && array[i] > array[i + 1])
                 {
                     Console.Write(" " + array[i]);
                 }
             }
 
-            if(array[array.Length-1] > (array.Length - 2))
+            if (array[array.Length - 1] > (array.Length - 2))
             {
                 Console.Write(" " + array[array.Length - 1]);
             }
