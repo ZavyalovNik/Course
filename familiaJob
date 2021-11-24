@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] familia = new string[0];
+            string[] job = new string[0];
+            string userInput = "0";
+            Console.WriteLine("Введите одну из команд");
+            int x = 0;
+            while (userInput != "exit")
+            {
+                Console.WriteLine("1" + " Добавить досье");
+                Console.WriteLine("2" + " Вывести досье");
+                Console.WriteLine("3" + " Удалить досье");
+                Console.WriteLine("4" + " Поиск по фамилии");
+                Console.WriteLine("5" + " Выход");
+                userInput = Console.ReadLine().ToLower();
+
+                switch(userInput)
+                {
+                    case "1":
+                        Console.WriteLine("Досье");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        userInput = "exit";
+                        Console.WriteLine("Удачи");
+                        break;
+                }
+
+            }
+
+
+
+
+
+
+        }
+
+    }
+}
