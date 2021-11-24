@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] names = new string[0];
+            string[] posts = new string[0];
+            bool exit = false;
+
+            while (exit != true)
+            {
+                Console.Clear();
+                Console.WriteLine("1 - добавить досье");
+                Console.WriteLine("2 - вывести все досье");
+                Console.WriteLine("3 - удалить досье");
+                Console.WriteLine("4 - поиск по фамилии");
+                Console.WriteLine("5 - выход\n\n");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        AddRecord(ref names, ref posts);
+                        break;
+                    case "2":
+                        ShowRecords(names, posts);
+                        break;
+                    case "3":
+                        DeleteRecord(ref names, ref posts);
+                        break;
+                    case "4":
+                        FindRecord(names, posts);
+                        break;
+                    case "5":
+                        exit = true;
+                        break;
+                }
+            }
+        }
+
+        static void AddRecord(ref string[] names, ref string[] posts)
+        {
+            Console.Write("\nВведите фамилию: ");
+            AddLine(ref names, Console.ReadLine());
+
+            Console.Write("Введите должность: ");
+            AddLine(ref posts, Console.ReadLine());
+        }
+
+        static void ShowRecords(string[] names, string[] posts)
+        {
+            Console.WriteLine("\nВсе записи:");
+            for (int i = 0; i < names.GetLength(0); i++)
+            {
+                Console.WriteLine($"{i}. {names[i]} - {posts[i]}");
+            }
+            Console.Write("\nДля продолжения нажмите любую клавишу");
+            Console.ReadKey();
+        }
+
+        static void DeleteRecord(ref string[] names, ref string[] posts)
+        {
+            Console.Write("\nВведите номер записи для удаления: ");
+
+            string userInput = Console.ReadLine();
+            if (int.TryParse(userInput, out int indexOfLineToDelete))
+            {
+                if ((indexOfLineToDelete > -1) && (indexOfLineToDelete < names.GetLength(0)))
+                {
+                    RemoveLine(ref names, indexOfLineToDelete);
+                    RemoveLine(ref posts, indexOfLineToDelete);
+                    Console.Write("Запись удалена. Нажмите любую клавишу для продолжения...");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.Write("Записи с данным номером нет. Нажмите любую клавишу для продолжения...");
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        static void FindRecord(string[] names, string[] posts)
+        {
+            Console.Write("\nВведите фамилию для поиска: ");
+            string nameToSearch = Console.ReadLine();
+            for (int i = 0; i < names.GetLength(0); i++)
+            {
+                if (names[i] == nameToSearch)
+                {
+                    Console.WriteLine($"\nИскомая запись:\n{i}. {names[i]} - {posts[i]}");
+                    Console.Write("\n Для продолжения нажмите любую клавишу");
+                    Console.ReadKey();
+                    return;
+                }
+            }
+            Console.Write("\nЗаписи с такой фамилией не найдено. Для продолжения нажмите любую клавишу");
+            Console.ReadKey();
+        }
+
+        static void AddLine(ref string[] array, string line)
+        {
+            string[] tempArray = new string[array.GetLength(0) + 1];
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                tempArray[i] = array[i];
+            }
+            tempArray[array.GetLength(0)] = line;
+            array = tempArray;
+        }
+
+        static void RemoveLine(ref string[] array, int indexOfLineToDelete)
+        {
+            if ((array.GetLength(0) > 0) && (indexOfLineToDelete > -1) && (indexOfLineToDelete < array.GetLength(0)))
+            {
+                string[] tempArray = new string[array.GetLength(0) - 1];
+                for (int i = 0; i < indexOfLineToDelete; i++)
+                {
+                    tempArray[i] = array[i];
+                }
+                for (int i = indexOfLineToDelete; i < array.GetLength(0) - 1; i++)
+                {
+                    tempArray[i] = array[i + 1];
+                }
+                array = tempArray;
+            }
+        }
+    }
+}
