@@ -52,15 +52,15 @@ namespace consoleNew
             Console.WriteLine("Введите должность");
             AddLineInArray(ref arrayOfPost, Console.ReadLine());
         }
-        static void AddLineInArray(ref string[] array, string line)
+        static void AddLineInArray(ref string[] array, string line) // запрашивает 2 значения, получает ссылку на массив из самого начала string[] surname = new string[0]; у этого  массива нет никаких значений, только облась памяти. второе значение то что вводит полльзователь 50 строка
         {
-            string[] tempArray = new string[array.Length + 1];
-            for (int i = 0; i < array.Length; i++)
+            string[] tempArray = new string[array.Length + 1]; //берем длинну массива (сейчас она 0?) и добавляем 1, получаем временный массив в котором может быть ОДНО значение, или 2? ведь массивы считаются с 0 значения
+            for (int i = 0; i < array.Length; i++) // бежим по циклу
             {
-                tempArray[i] = array[i];
+                tempArray[i] = array[i]; // присваиваем значения из одного цикла другому
             }
-            tempArray[tempArray.Length - 1] = line;
-            array = tempArray;
+            tempArray[tempArray.Length - 1] = line;//  длинна массива сейчас 1, мы вычитаем 1 и получаем 0 значение. приравниваем ввод нулевому значению массива.
+            array = tempArray; //приравниваем массивы
         }
 
         static void ShowRecords(string[] names, string[] posts)
