@@ -31,6 +31,7 @@ namespace consoleNew
                         AddDosier(ref surname, ref post);
                         break;
                     case "2":
+                        ShowRecords(surname, post);
                         break;
                     case "3":
                         break;
@@ -43,16 +44,16 @@ namespace consoleNew
 
             }
         }
-        static void AddDosier(ref string[] surname, ref string[] post)
+       static void AddDosier(ref string[] arrayOfSurname, ref string[] arrayOfPost)
         {
             Console.WriteLine("Введите фамилию");
-            AddLine(surname, Console.ReadLine()); 
+            AddLineInArray(ref arrayOfSurname, Console.ReadLine());
 
             Console.WriteLine("Введите должность");
-            AddLine(post, Console.ReadLine());
+            AddLineInArray(ref arrayOfPost, Console.ReadLine());
         }
-        static void AddLine(string[] array, string line)
-        {
+        static void AddLineInArray(ref string[] array, string line)
+            {
             string[] tempArray = new string[array.GetLength(0) + 1];
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -60,6 +61,17 @@ namespace consoleNew
             }
             tempArray[array.GetLength(0)] = line;
             array = tempArray;
+            }
+
+        static void ShowRecords(string[] names, string[] posts)
+        {
+            Console.WriteLine("\nВсе записи:");
+            for (int i = 0; i < names.GetLength(0); i++)
+            {
+                Console.WriteLine($"{i}. {names[i]} - {posts[i]}");
+            }
+            Console.Write("\nДля продолжения нажмите любую клавишу");
+            Console.ReadKey();
         }
     }
 }
