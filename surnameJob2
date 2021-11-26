@@ -59,7 +59,7 @@ namespace consoleNew
             {
                 tempArray[i] = array[i];
             }
-            tempArray[array.GetLength(0)] = line;
+            tempArray[tempArray.GetLength(0)-1] = line;
             array = tempArray;
             }
 
