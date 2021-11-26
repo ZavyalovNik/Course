@@ -44,7 +44,7 @@ namespace consoleNew
 
             }
         }
-       static void AddDosier(ref string[] arrayOfSurname, ref string[] arrayOfPost)
+        static void AddDosier(ref string[] arrayOfSurname, ref string[] arrayOfPost)
         {
             Console.WriteLine("Введите фамилию");
             AddLineInArray(ref arrayOfSurname, Console.ReadLine());
@@ -53,15 +53,15 @@ namespace consoleNew
             AddLineInArray(ref arrayOfPost, Console.ReadLine());
         }
         static void AddLineInArray(ref string[] array, string line)
-            {
-            string[] tempArray = new string[array.GetLength(0) + 1];
-            for (int i = 0; i < array.GetLength(0); i++)
+        {
+            string[] tempArray = new string[array.Length + 1];
+            for (int i = 0; i < array.Length; i++)
             {
                 tempArray[i] = array[i];
             }
-            tempArray[tempArray.GetLength(0)-1] = line;
+            tempArray[tempArray.Length - 1] = line;
             array = tempArray;
-            }
+        }
 
         static void ShowRecords(string[] names, string[] posts)
         {
