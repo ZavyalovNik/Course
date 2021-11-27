@@ -10,7 +10,6 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-
             string[] surname = new string[0];
             string[] post = new string[0];
             bool exit = false;
@@ -36,6 +35,7 @@ namespace consoleNew
                     case "3":
                         break;
                     case "4":
+                        FindName(ref surname, ref post);
                         break;
                     case "5":
                         exit = true;
@@ -44,6 +44,7 @@ namespace consoleNew
 
             }
         }
+
         static void AddDosier(ref string[] arrayOfSurname, ref string[] arrayOfPost)
         {
             Console.WriteLine("Введите фамилию");
@@ -52,25 +53,50 @@ namespace consoleNew
             Console.WriteLine("Введите должность");
             AddLineInArray(ref arrayOfPost, Console.ReadLine());
         }
-        static void AddLineInArray(ref string[] array, string line) // запрашивает 2 значения, получает ссылку на массив из самого начала string[] surname = new string[0]; у этого  массива нет никаких значений, только облась памяти. второе значение то что вводит полльзователь 50 строка
+
+        static void AddLineInArray(ref string[] array, string line)
         {
-            string[] tempArray = new string[array.Length + 1]; //берем длинну массива (сейчас она 0?) и добавляем 1, получаем временный массив в котором может быть ОДНО значение, или 2? ведь массивы считаются с 0 значения
-            for (int i = 0; i < array.Length; i++) // бежим по циклу
+            string[] tempArray = new string[array.Length + 1];
+
+            for (int i = 0; i < array.Length; i++)
             {
-                tempArray[i] = array[i]; // присваиваем значения из одного цикла другому
+                tempArray[i] = array[i];
             }
-            tempArray[tempArray.Length - 1] = line;//  длинна массива сейчас 1, мы вычитаем 1 и получаем 0 значение. приравниваем ввод нулевому значению массива.
-            array = tempArray; //приравниваем массивы
+            tempArray[tempArray.Length - 1] = line;
+            array = tempArray;
         }
 
         static void ShowRecords(string[] names, string[] posts)
         {
             Console.WriteLine("\nВсе записи:");
+
             for (int i = 0; i < names.GetLength(0); i++)
             {
-                Console.WriteLine($"{i}. {names[i]} - {posts[i]}");
+                Console.WriteLine($"{i + 1}. {names[i]} - {posts[i]}");
             }
             Console.Write("\nДля продолжения нажмите любую клавишу");
+            Console.ReadKey();
+        }
+
+        static void FindName(ref string[] massiveSurname, ref string[] massivePost)
+        {
+            Console.WriteLine("Введите фамилию для поиска");
+            string searchName = Console.ReadLine();
+           
+            for(int i = 0; i < massiveSurname.Length; i++)
+            {
+                if(massiveSurname[i] == searchName)
+                {
+                    Console.WriteLine("Найдено: " + i + " " + massiveSurname[i] + " - " + massivePost[i]);
+                    Console.Write("\n Для продолжения нажмите любую клавишу");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Console.Write("\nЗаписи с такой фамилией не найдено. Для продолжения нажмите любую клавишу");
             Console.ReadKey();
         }
     }
