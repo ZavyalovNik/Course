@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool x = true;
+
+            while (x)
+            {
+                int number = 0 ;
+                Number(number,x);
+            }
+        }
+
+        static void Number(int number,bool x)
+        {
+            Console.WriteLine("Введите строку:");
+            string input = Console.ReadLine();
+            bool result = int.TryParse(input, out number);
+
+            if (result == true)
+            {
+                Console.WriteLine("Преобразование прошло успешно");
+                Console.WriteLine("Введенное число: ");
+                Console.WriteLine(number);
+                x = true;
+            }
+
+            else
+                Console.WriteLine("Преобразование завершилось неудачно");
+        }
+    }
+}
