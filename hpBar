@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int maxValue = 10;
+            Console.WriteLine("Сколько процентов в полоске хп?");
+            int value = (int.Parse(Console.ReadLine()))/10;
+
+            DrowBar( value,  maxValue);
+        }
+        static void DrowBar(int value,int maxValue)
+        {
+            string bar = null; 
+
+            for(int i= 0; i < value; i++)
+            {
+                bar += "#";
+            }
+            Console.Write("[");
+            Console.Write(bar);
+            bar = "";
+
+            for (int i = value; i < maxValue; i++)
+            {
+                bar += "_";
+            }
+            Console.Write(bar);
+            Console.Write("]");
+        }
+    }
+}
