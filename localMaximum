@@ -38,7 +38,7 @@ namespace consoleNew
                 }
             }
 
-            if (array[array.Length - 1] > (array.Length - 2))
+            if (array[array.Length - 1] > array[array.Length - 2])
             {
                 Console.Write(" " + array[array.Length - 1]);
             }
