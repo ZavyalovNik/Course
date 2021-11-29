@@ -10,8 +10,8 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            int[] userNumber = new int[0];
-            string userInput = "what?";
+            int[] userNumbers = new int[0];
+            string userInput = null;
             int sum = 0;
             Console.WriteLine("Ведите число");
             Console.WriteLine("Чтобы вывести сумму введеных чисел введите Sum");
@@ -23,9 +23,10 @@ namespace consoleNew
 
                 if (userInput == "sum")
                 {
-                    for (int i = 0; i < userNumber.Length; i++)
+                    for (int i = 0; i < userNumbers.Length; i++)
                     {
-                        sum += userNumber[i];
+                        sum += userNumbers[i];
+
                     }
                     Console.WriteLine(sum);
                 }
@@ -33,19 +34,18 @@ namespace consoleNew
                 else if (userInput == "esc")
                 {
                     Console.WriteLine("Вы вышли из программы");
-                    break;
                 }
 
                 else
                 {
-                    int[] tempUserNumber = new int[userNumber.Length + 1];
+                    int[] tempUserNumbers = new int[userNumbers.Length + 1];
 
-                    for (int i = 0; i < userNumber.Length; i++)
+                    for (int i = 0; i < userNumbers.Length; i++)
                     {
-                        tempUserNumber[i] = userNumber[i];
+                        tempUserNumbers[i] = userNumbers[i];
                     }
-                    tempUserNumber[tempUserNumber.Length - 1] = int.Parse(userInput);
-                    userNumber = tempUserNumber;
+                    tempUserNumbers[tempUserNumbers.Length - 1] = int.Parse(userInput);
+                    userNumbers = tempUserNumbers;
                 }
             }
         }
