@@ -10,16 +10,16 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            bool x = true;
+            bool cycleOperation = true;
 
-            while (x)
+            while (cycleOperation)
             {
-                int number = 0 ;
-                Number(number,x);
+                int number = 0;
+                Convertation(number, cycleOperation);
             }
         }
 
-        static void Number(int number,bool x)
+        static void Convertation(int number, bool cycleOperation)
         {
             Console.WriteLine("Введите строку:");
             string input = Console.ReadLine();
@@ -30,11 +30,13 @@ namespace consoleNew
                 Console.WriteLine("Преобразование прошло успешно");
                 Console.WriteLine("Введенное число: ");
                 Console.WriteLine(number);
-                x = true;
+                cycleOperation = true;
             }
 
             else
+            {
                 Console.WriteLine("Преобразование завершилось неудачно");
+            }
         }
     }
 }
