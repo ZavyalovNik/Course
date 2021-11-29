@@ -13,12 +13,11 @@ namespace consoleNew
             int[] userNumber = new int[0];
             string userInput = "what?";
             int sum = 0;
-            bool esc = true;
             Console.WriteLine("Ведите число");
             Console.WriteLine("Чтобы вывести сумму введеных чисел введите Sum");
             Console.WriteLine("Чтобы выйти введите Esc");
 
-            while (esc)
+            while (userInput != "esc")
             {
                 userInput = Console.ReadLine().ToLower();
 
@@ -31,10 +30,10 @@ namespace consoleNew
                     Console.WriteLine(sum);
                 }
 
-                else if(userInput == "esc")
+                else if (userInput == "esc")
                 {
                     Console.WriteLine("Вы вышли из программы");
-                    esc = false;
+                    break;
                 }
 
                 else
