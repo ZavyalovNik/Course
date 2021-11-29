@@ -12,14 +12,15 @@ namespace consoleNew
         {
             int maxValue = 10;
             Console.WriteLine("Сколько процентов в полоске хп?");
-            int value = (int.Parse(Console.ReadLine())) / 10;
+            int userInput = (int.Parse(Console.ReadLine()));
+            int value = userInput / 10;
 
-            DrowBar(value, maxValue);
+            DrawBar(value, maxValue);
         }
-        static void DrowBar(int value, int maxValue)
+        static void DrawBar(int value, int maxValue)
         {
             string bar = null;
-            if ((value >= 0) && (value <= 10))
+            if ((value >= 0) && (value <= maxValue))
             {
                 for (int i = 0; i < value; i++)
                 {
