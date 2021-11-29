@@ -10,10 +10,11 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
+            int numberForLength = 10;
             int maxValue = 10;
             Console.WriteLine("Сколько процентов в полоске хп?");
             int userInput = (int.Parse(Console.ReadLine()));
-            int value = userInput / 10;
+            int value = userInput / numberForLength;
 
             DrawBar(value, maxValue);
         }
