@@ -17,13 +17,14 @@ namespace consoleNew
 
         static void Shuffle(ref int[] array)
         {
-
+            Console.WriteLine("Массив");
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write(array[i] + " ");
             }
 
             Console.Write("\n");
+            Console.WriteLine("Перемешанный массив");
             var random = new Random(DateTime.Now.Millisecond);
             array = array.OrderBy(x => random.Next()).ToArray();
 
