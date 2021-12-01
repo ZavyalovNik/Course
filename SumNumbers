@@ -10,7 +10,7 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            int[] userNumbers = new int[0];
+            int[] numbers = new int[0];
             string userInput = null;
             int sum = 0;
             Console.WriteLine("Ведите число");
@@ -23,29 +23,29 @@ namespace consoleNew
 
                 if (userInput == "sum")
                 {
-                    for (int i = 0; i < userNumbers.Length; i++)
+
+                    for (int i = 0; i < numbers.Length; i++)
                     {
-                        sum += userNumbers[i];
+                        sum += numbers[i];
 
                     }
                     Console.WriteLine(sum);
+                    sum = 0;
                 }
-
                 else if (userInput == "esc")
                 {
                     Console.WriteLine("Вы вышли из программы");
                 }
-
                 else
                 {
-                    int[] tempUserNumbers = new int[userNumbers.Length + 1];
+                    int[] tempUserNumbers = new int[numbers.Length + 1];
 
-                    for (int i = 0; i < userNumbers.Length; i++)
+                    for (int i = 0; i < numbers.Length; i++)
                     {
-                        tempUserNumbers[i] = userNumbers[i];
+                        tempUserNumbers[i] = numbers[i];
                     }
                     tempUserNumbers[tempUserNumbers.Length - 1] = int.Parse(userInput);
-                    userNumbers = tempUserNumbers;
+                    numbers = tempUserNumbers;
                 }
             }
         }
