@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue<int> numbers = new Queue<int>();
+
+            numbers.Enqueue(2);
+            numbers.Enqueue(5);
+            numbers.Enqueue(7);
+            numbers.Enqueue(6);
+            numbers.Enqueue(4);
+            numbers.Enqueue(3);
+            numbers.Enqueue(10);
+            numbers.Enqueue(5);
+            numbers.Enqueue(82);
+            numbers.Enqueue(11);
+            int sum = 0;
+
+            foreach (int number in numbers)
+            {
+                if (number is int)
+                {
+                    sum += (int)number;
+                    Console.WriteLine("На балансе: " + sum);
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+        }
+    }
+}
