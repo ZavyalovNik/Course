@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите цвет который хотите найти");
+            string userInput = Console.ReadLine().ToLower();
+            
+            List<string> color = new List<string>();
+            color.Add("красный");
+            color.Add("синий");
+            color.Add("зелёный");
+            color.Add("чёрный");
+            color.Add("жёлтый");
+
+            for (int i = 0; i < color.Count; i++)
+            {
+                if (userInput == color[i])
+                {
+                    Console.WriteLine("Вы хотели найти цвет " + userInput + " его позиция в списке " + (color.Count - 1));
+                    break;
+                }
+            }
+
+            Console.WriteLine("Нет такого цвета в списке");
+        }
+    }
+}
