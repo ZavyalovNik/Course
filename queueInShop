@@ -10,29 +10,27 @@ namespace consoleNew2
     {
         static void Main(string[] args)
         {
-            Queue<int> numbers = new Queue<int>();
+            Queue<int> customer = new Queue<int>();
 
-            numbers.Enqueue(2);
-            numbers.Enqueue(5);
-            numbers.Enqueue(7);
-            numbers.Enqueue(6);
-            numbers.Enqueue(4);
-            numbers.Enqueue(3);
-            numbers.Enqueue(10);
-            numbers.Enqueue(5);
-            numbers.Enqueue(82);
-            numbers.Enqueue(11);
+            customer.Enqueue(2);
+            customer.Enqueue(5);
+            customer.Enqueue(7);
+            customer.Enqueue(6);
+            customer.Enqueue(4);
+            customer.Enqueue(3);
+            customer.Enqueue(10);
+            customer.Enqueue(5);
+            customer.Enqueue(82);
+            customer.Enqueue(11);
             int sum = 0;
 
-            foreach (int number in numbers)
+            foreach (int number in customer)
             {
-                if (number is int)
-                {
                     sum += (int)number;
                     Console.WriteLine("На балансе: " + sum);
                     Console.ReadKey();
                     Console.Clear();
-                }
+               
             }
         }
     }
