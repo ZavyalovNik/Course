@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool work = true;
+            int sum = 0;
+            List<int> numbers = new List<int>();
+
+            while (work)
+            {
+                string userInput = Console.ReadLine();
+
+                if (userInput == "sum")
+                {
+                    for (int i = 0; i < numbers.Count; i++)
+                    {
+                        sum += numbers[i];
+                    }
+                    Console.WriteLine("Сумма введёных чисел " + sum);
+                    sum = 0;
+                }
+
+                else if (userInput == "esc")
+                {
+                    work = false;
+                    Console.WriteLine("Конец");
+                }
+
+                else if (int.Parse(userInput) is int)
+                {
+                    numbers.Add(int.Parse(userInput));
+
+                }
+
+                else if (userInput is string)
+                {
+                    Console.WriteLine("Ещё разок");
+                }
+            }
+        }
+    }
+}
