@@ -10,26 +10,21 @@ namespace consoleNew
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите цвет который хотите найти");
+            Dictionary<string, string> countries = new Dictionary<string, string>();
+            countries.Add("россия", "москва");
+            countries.Add("британия", "лондон");
+            countries.Add("китай", "пекин");
+            Console.WriteLine("у какой страны вы хотите узнать столицу?");
             string userInput = Console.ReadLine().ToLower();
-            
-            List<string> color = new List<string>();
-            color.Add("красный");
-            color.Add("синий");
-            color.Add("зелёный");
-            color.Add("чёрный");
-            color.Add("жёлтый");
 
-            for (int i = 0; i < color.Count; i++)
+            if(countries.ContainsKey(userInput))
             {
-                if (userInput == color[i])
-                {
-                    Console.WriteLine("Вы хотели найти цвет " + userInput + " его позиция в списке " + (color.Count - 1));
-                    break;
-                }
+                Console.WriteLine("Столица страны " + userInput + " - " + countries[userInput]);
             }
-
-            Console.WriteLine("Нет такого цвета в списке");
+            else
+            {
+                Console.WriteLine("Нет такой столицы в списке");
+            }
         }
     }
 }
