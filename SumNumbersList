@@ -13,7 +13,6 @@ namespace consoleNew2
             bool work = true;
             int sum = 0;
             List<int> numbers = new List<int>();
-
             while (work)
             {
                 string userInput = Console.ReadLine();
@@ -27,23 +26,17 @@ namespace consoleNew2
                     Console.WriteLine("Сумма введёных чисел " + sum);
                     sum = 0;
                 }
-
                 else if (userInput == "esc")
                 {
                     work = false;
                     Console.WriteLine("Конец");
                 }
-
-                else if (int.Parse(userInput) is int)
+                else 
                 {
+                    int.TryParse(string value, out int number);
                     numbers.Add(int.Parse(userInput));
-
                 }
-
-                else if (userInput is string)
-                {
-                    Console.WriteLine("Ещё разок");
-                }
+                
             }
         }
     }
