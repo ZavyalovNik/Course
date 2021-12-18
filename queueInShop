@@ -24,13 +24,12 @@ namespace consoleNew2
             customer.Enqueue(11);
             int sum = 0;
 
-            foreach (int number in customer)
+            while (customer.Count > 0)
             {
-                    sum += (int)number;
-                    Console.WriteLine("На балансе: " + sum);
-                    Console.ReadKey();
-                    Console.Clear();
-               
+                sum += customer.Dequeue();
+                Console.WriteLine("На балансе: " + sum);
+                Console.ReadKey();
+                Console.Clear();
             }
         }
     }
