@@ -34,11 +34,21 @@ namespace consoleNew2
                     Console.WriteLine("Конец");
                 }
 
-                else 
+                else
                 {
                     int.TryParse(userInput, out int number);
-                    numbers.Add(int.Parse(userInput));
+                    bool result = int.TryParse(userInput, out number);
+
+                    if (result == true)
+                    {
+                        numbers.Add(number);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы ввели что то непонятное, попробуйте еще раз");
+                    }
                 }
+
             }
         }
     }
