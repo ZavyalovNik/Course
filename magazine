@@ -1,0 +1,163 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew2
+{
+    class Player
+    {
+        static void Main(string[] args)
+        {
+            Program program = new Program();
+            program.Start();
+        }
+    }
+
+    class Program
+    {
+        private int _sale;
+        private int _money;
+
+        public Salesman Salesman { get; private set; } = new Salesman();
+
+        public List<Product> MyStuff { get; private set; } = new List<Product>();
+
+        public void Start()
+        {
+            string command = " ";
+
+            _money = 450;
+            Salesman.AddInfo();
+
+            while (command != "exit")
+            {
+                Console.Write("\n Программа - Магазин.\n В данной программе есть продавец, он имеет у себя список товаров, и при нужде, может вам его показать, также продавец\n может продать вам" +
+                 " товар. После продажи товар переходит к вам, и вы можете также посмотреть свои вещи.\n\n Команды:\n show - продавец показывает пользователю товары,\n sale - продавец продает товар" +
+                 " пользователю,\n things - просмотр вещей пользователя,\n exit - выход из программы.\n");
+
+                Console.Write("\n Деньги пользователя = " + _money + ".");
+
+                Console.Write("\n Введите команду: ");
+                command = Console.ReadLine();
+                switch (command)
+                {
+                    case "show":
+                        Salesman.Show();
+                        break;
+                    case "sale":
+                        SaleProduct();
+                        break;
+                    case "things":
+                        ViewingMyThings();
+                        break;
+                }
+
+                Console.Write("\n\n Нажмите любую клавишу.");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            Console.Write("\n Программа Магазин завершается.\n");
+        }
+
+        public void ViewingMyThings()
+        {
+            for (int i = 0; i < MyStuff.Count; i++)
+            {
+                Console.Write("\n Номер продукта - " + i);
+                MyStuff[i].ShowInfo();
+            }
+        }
+
+        public void SaleProduct()
+        {
+            Console.Write("\n Введите номер продукта, который вы хотите купить: ");
+            if (int.TryParse(Console.ReadLine(), out _sale))
+            {
+                if (_sale < Salesman.Products.Count)
+                {
+                    _money -= Salesman.Products[_sale].Price;
+                    MyStuff.Add(Salesman.Products[_sale]);
+
+                    Salesman.RemoveProduct(ref _sale);
+                    Console.WriteLine("\n Продукт куплен");
+                }
+                else
+                {
+                    Console.WriteLine(" Такого продукта нет. Попробуйте еще раз.");
+                }
+            }
+            else
+            {
+                Console.WriteLine(" Вы ввели не число. Попробуйте еще раз.");
+            }
+        }
+
+        public void AddProduct()
+        {
+            MyStuff.Add(Salesman.Products[_sale]);
+        }
+    }
+
+    class Salesman
+    {
+        public List<Product> Products { get; private set; } = new List<Product>();
+
+        public void AddInfo()
+        {
+            Product _product1 = new Product("Масло", "Проспект мира 14", "Россия", "Томск", 200, "10.12.21 г.", 100);
+            Product _product2 = new Product("Молоко", "Проспект мира 20", "Россия", "Красноярск", 100, "11.11.21 г.", 150);
+            Product _product3 = new Product("Творог", "Проспект мира 30", "Россия", "Москва", 300, "05.06.21 г.", 200);
+
+            Products.Add(_product1);
+            Products.Add(_product2);
+            Products.Add(_product3);
+        }
+
+        public void Show()
+        {
+            for (int i = 0; i < Products.Count; i++)
+            {
+                Console.Write("\n Номер продукта - " + i);
+                Products[i].ShowInfo();
+            }
+        }
+
+        public void RemoveProduct(ref int _sale)
+        {
+            Products.RemoveAt(_sale);
+        }
+    }
+
+    class Product
+    {
+        private readonly string _name;
+        private readonly string _location;
+        private readonly string _nameСountry;
+        private readonly string _placeOrigin;
+        private readonly int _weight;
+        private readonly string _shelfLife;
+
+        public int Price { get; private set; }
+
+        public Product(string name, string location, string nameСountry, string placeOrigin, int weight, string shelfLife, int price)
+        {
+            _name = name;
+            _location = location;
+            _nameСountry = nameСountry;
+            _placeOrigin = placeOrigin;
+            _weight = weight;
+            _shelfLife = shelfLife;
+            Price = price;
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine(", наименование продукта - " + _name + ", местонахождение (адрес) изготовителя - " + _location + ",\n название страны - " + _nameСountry + ", место происхождения - " +
+            _placeOrigin + ", масса - " + _weight + " гр., срок годности " + _shelfLife + ", Цена - " + Price + ".");
+        }
+    }
+}
+ 
