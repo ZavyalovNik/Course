@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace consoleNew
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ShowPlayerPosition showPlayer = new ShowPlayerPosition();
+            Player player = new Player(10,10);
+            showPlayer.DrawPlayer(player.X, player.Y);
+        }
+
+    }
+
+    class ShowPlayerPosition
+    {
+        public void DrawPlayer(int x, int y, char player ='@')
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(player);
+
+        }
+    }
+    class Player
+    {
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
+        public Player(int x, int y)
+        {
+            X = x;
+            Y = y; 
+
+        }
+    }
+   
+}
