@@ -25,8 +25,7 @@ namespace consoleNew
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        Console.WriteLine("Введите фамилию, а затем должность");
-                        man.Add(Console.ReadLine().ToLower(), Console.ReadLine().ToLower());
+                        AddDosier(ref string man);
                         break;
                     case "2":
 
@@ -46,6 +45,11 @@ namespace consoleNew
                         break;
                 }
             }
+        }
+        static void AddDosier(ref string man)
+        {
+            Console.WriteLine("Введите фамилию, а затем должность");
+            man.Add(Console.ReadLine().ToLower(), Console.ReadLine().ToLower());
         }
     }
 }
