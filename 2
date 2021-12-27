@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace consoleNew
+{
+    class Player
+    {
+        static void Main(string[] args)
+        {
+            Program program = new Program();
+            program.Start();
+        }
+
+    }
+
+    class Program
+    {
+        private int _sale;
+
+        public Salesman Salesman{get;private set; } = new Salesman();
+
+        public List<Product> MyStuff { get; private set; } = new List<Product>();
+
+        public void Start()
+        {
+            string command = null;
+
+            Salesman.AddInfo();
+
+
+            while (command != "exit")
+            {
+                Console.Write("\n Команды:\n show - продавец показывает пользователю товары,\n sale - продавец продает товар" +
+                 " пользователю,\n things - просмотр вещей пользователя,\n exit - выход из программы.\n");
+                Console.WriteLine("Введите команду");
+                command = Console.ReadLine();
+                switch(command)
+                {
+                    case "show":
+                        Salesman.Show();
+                        break;
+                    case "sale":
+                        SaleProduct();
+                        break;
+                    case " things":
+                        ViewingMyThings();
+                        break;
+                }
+                Console.Write("\n\n Нажмите любую клавишу.");
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+        public void ViewingMyThings()
+        {
+            for (int i = 0; i < MyStuff.Count; i++)
+            {
+                Console.WriteLine("номер продукта " + i);
+                MyStuff[i].ShowInfo();
+            }
+        }
+        public void SaleProduct()
+        {
+            Console.WriteLine("Введите номер продукта который хотите купить");
+            if(int.TryParse(Console.ReadLine(), out _sale))
+            {
+                if(_sale< Salesman.Products.Count)
+                {
+                    MyStuff.Add(Salesman.Products[_sale]);
+
+                    Salesman.RemoveProduct(ref _sale);
+                    Console.WriteLine("Куплено");
+                }
+                else
+                {
+                    Console.WriteLine("Нет такого продукта");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Вы введи  не то, еще раз");
+            }
+        }
+
+    }
+    class Salesman
+    {
+        public List<Product> Products { get; private set; } = new List<Product>();
+
+        public void AddInfo()
+        {
+        Product product1 = new Product("Спички");
+            Product product2 = new Product("Молоко");
+            Product product3 = new Product("Хлеб");
+            Product product4 = new Product("Водка");
+
+            Products.Add(product1);
+            Products.Add(product2);
+            Products.Add(product3);
+            Products.Add(product4);
+        }
+        public void Show()
+        {
+            for (int i = 0; i < Products.Count; i++)
+            {
+                Console.Write("Продукит" + i);
+                Products[i].ShowInfo();
+            }
+        }
+        public void RemoveProduct(ref int _sale)
+        {
+            Products.RemoveAt(_sale);
+        }
+    }
+    class Product
+    {
+        private string _name;
+
+        public Product(string name)
+        {
+            _name = name;
+        }
+        public void ShowInfo()
+        {
+            Console.WriteLine(", наименование продукта - " + _name);
+        }
+    }
+   
+}
