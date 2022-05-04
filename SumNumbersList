@@ -11,21 +11,18 @@ namespace consoleNew2
         static void Main(string[] args)
         {
             bool work = true;
-            int sum = 0;
+
             List<int> numbers = new List<int>();
 
             while (work)
             {
+                
                 string userInput = Console.ReadLine();
 
                 if (userInput == "sum")
                 {
-                    for (int i = 0; i < numbers.Count; i++)
-                    {
-                        sum += numbers[i];
-                    }
-                    Console.WriteLine("Сумма введёных чисел " + sum);
-                    sum = 0;
+                    Sum(numbers);
+                
                 }
 
                 else if (userInput == "esc")
@@ -36,8 +33,8 @@ namespace consoleNew2
 
                 else
                 {
-                    int.TryParse(userInput, out int number);
-                    bool result = int.TryParse(userInput, out number);
+
+                    bool result = int.TryParse(userInput, out int number);
 
                     if (result == true)
                     {
@@ -51,5 +48,16 @@ namespace consoleNew2
 
             }
         }
+        static void Sum(List<int> numbers)
+        {
+            int sum = 0;
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                sum += numbers[i];
+            }
+            Console.WriteLine("Сумма введёных чисел " + sum);
+            sum = 0;
+        }
+        
     }
 }
