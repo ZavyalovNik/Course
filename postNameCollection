@@ -39,19 +39,22 @@ namespace consoleNew
                 }
             }
         }
+
         static void AddDosier(Dictionary<string, string> man)
         {
             Console.WriteLine("Введите фамилию, а затем должность");
             man.Add(Console.ReadLine().ToLower(), Console.ReadLine().ToLower());
         }
+
         static void Addrecord(Dictionary<string, string> man)
         {
-            foreach (var item in man)
+            foreach (var namePosition in man)
             {
-                Console.WriteLine(item.Key + " - " + item.Value);
+                Console.WriteLine(namePosition.Key + " - " + namePosition.Value);
             }
             Console.ReadKey();
         }
+        
         static void DeleteDosier(Dictionary<string, string> man)
         {
             Console.WriteLine("Напишите фамилию которую нужно удалить");
