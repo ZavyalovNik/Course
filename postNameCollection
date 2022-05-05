@@ -43,9 +43,21 @@ namespace consoleNew
         static void AddDosier(Dictionary<string, string> man)
         {
             Console.WriteLine("Введите фамилию, а затем должность");
-            man.Add(Console.ReadLine().ToLower(), Console.ReadLine().ToLower());
-        }
+            string name = Console.ReadLine().ToLower();
+            string position = Console.ReadLine().ToLower();
+            
+            if (man.ContainsKey(name))
+            {
+                Console.WriteLine("Такая запись уже существует ");
+                Console.ReadKey();
+            }
 
+            else
+            {
+                man.Add(name, position);
+            }
+        }
+     
         static void Addrecord(Dictionary<string, string> man)
         {
             foreach (var namePosition in man)
