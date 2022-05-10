@@ -17,22 +17,22 @@ namespace consoleNew
 
     class Player
     {
-        public int Health;
-        public int Armor;
-        public int Damage;
-        public int Speed;
+        private int _health;
+        private int _armor;
+        private int _damage;
+        private int _speed;
 
         public Player(int health, int armor, int damage, int speed)
         {
-            Health = health;
-            Armor = armor;
-            Damage = damage;
-            Speed = speed;
+            _health = health;
+            _armor = armor;
+            _damage = damage;
+            _speed = speed;
         }
 
         public void ShowStats()
         {
-            Console.WriteLine(Armor + " " + Health + " " +  Damage + " " + Speed);
+            Console.WriteLine(_armor + " " + _health + " " + _damage + " " + _speed);
         }
     }
 }
