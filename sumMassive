@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace consoleNew
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> combiArray = new List<int>();
+            
+            int[] array1 = new int[3];
+            array1[0] = 1;
+            array1[1] = 2;
+            array1[2] = 1;
+            int[] array2 = new int[2];
+            array2[0] = 3;
+            array2[1] = 2;
+            combiArray.AddRange(array1);
+            combiArray.AddRange(array2);
+
+            for (int i = 0; i < combiArray.Count; i++)
+            {
+                if (i > 0)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (combiArray[i] == combiArray[j])
+                        {
+                            combiArray.Remove(combiArray[j]);
+                            i--;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < combiArray.Count; i++)
+            {
+                Console.WriteLine(combiArray[i]);
+            }
+            Console.ReadKey();
+        }               
+    }
+}
